@@ -3,200 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michkath ABOUDOU | Data Engineer & Analytics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Michkath ABOUDOU | Portfolio Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #2563eb;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --text: #334155;
-            --card-bg: #ffffff;
-            --accent-bg: #eff6ff;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--light);
-            color: var(--text);
+            background-color: var(--bg-body);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
+        a { text-decoration: none; transition: 0.2s; }
+
         /* HEADER */
         header {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            padding: 5rem 2rem;
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 6rem 2rem 4rem;
             text-align: center;
         }
 
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; font-weight: 800; letter-spacing: -1px; }
-        .subtitle { font-size: 1.25rem; opacity: 0.9; font-weight: 300; color: #94a3b8; }
-        .tagline { margin-top: 1.5rem; font-size: 1.1rem; font-style: italic; color: #cbd5e1; }
+        .profile-container { max-width: 800px; margin: 0 auto; }
 
-        .btn-contact {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.2s;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin: 0;
+            background: -webkit-linear-gradient(45deg, #0f172a, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .btn-contact:hover { transform: translateY(-2px); background-color: #1d4ed8; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4); }
+
+        .role {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .bio {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary { background-color: var(--text-main); color: white; }
+        .btn-primary:hover { background-color: var(--primary); transform: translateY(-2px); }
+        
+        .btn-outline { border: 1px solid var(--border); color: var(--text-main); background: white; }
+        .btn-outline:hover { border-color: var(--text-main); }
 
         /* CONTAINER */
         .container {
-            max-width: 1000px;
-            margin: -60px auto 60px;
-            padding: 0 20px;
+            max-width: 1200px; /* Un peu plus large pour la grille */
+            margin: 0 auto;
+            padding: 4rem 20px;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
         }
 
         .section-title {
-            text-align: center;
-            margin: 4rem 0 2rem;
-            color: var(--dark);
             font-size: 2rem;
             font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+            text-align: center;
         }
 
-        /* CARDS */
+        /* GRILLE PROJETS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Cartes un peu plus larges */
+            gap: 30px;
+            margin-bottom: 5rem;
+        }
+
         .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             overflow: hidden;
-            margin-bottom: 30px;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.2s;
-        }
-        
-        .card:hover { transform: translateY(-3px); }
-
-        .card-header { padding: 1.5rem 2rem 0; }
-
-        .card h3 { 
-            margin-top: 0; 
-            color: var(--dark); 
-            font-size: 1.4rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            height: 100%; /* Uniformise la hauteur */
         }
 
-        .card-tags { margin: 15px 0; display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag {
-            background: var(--accent-bg);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .card-img-top {
+            height: 200px;
+            background-color: #e2e8f0;
+            background-size: cover;
+            background-position: top center; /* Focus sur le haut de l'image */
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        
+        .card h3 { margin: 0 0 10px 0; font-size: 1.3rem; color: var(--text-main); }
+        
+        .card p { 
+            color: var(--text-secondary); 
+            font-size: 0.95rem; 
+            margin-bottom: 15px; 
+            flex-grow: 1; 
+        }
+
+        .tags-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0; }
+        .tech-tag {
+            background: #eff6ff;
             color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 600;
             border: 1px solid #dbeafe;
         }
 
-        .project-details { padding: 0 2rem 2rem; }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-            font-size: 0.95rem;
-        }
-        .feature-list li {
-            margin-bottom: 8px;
-            padding-left: 25px;
-            position: relative;
-        }
-        .feature-list li::before {
-            content: "✓";
-            color: var(--primary);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .architecture-block {
-            background-color: #f8fafc;
-            border: 1px dashed #cbd5e1;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .architecture-title {
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-            color: var(--dark);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        /* Images */
-        .card-img {
-            width: 100%;
-            height: auto; /* Hauteur auto pour afficher toute l'image */
-            max-height: 400px; /* Limite pour ne pas être trop grand */
-            object-fit: cover; /* Recadre proprement si ça dépasse */
-            object-position: top; /* Montre le haut de l'image (les titres) */
-            border-bottom: 1px solid #e2e8f0;
-            display: block;
+        .card-footer {
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid var(--border);
+            background: #fafafa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .web-card-img {
-            height: 180px;
-            background-color: #f1f5f9;
-            background-size: cover;
-            background-position: center;
-        }
+        .link-text { font-weight: 600; font-size: 0.9rem; color: var(--text-main); display: flex; align-items: center; gap: 5px; }
+        .link-text:hover { color: var(--primary); }
 
-        .card-links {
-            padding: 1.5rem 2rem;
-            background-color: #f8fafc;
-            border-top: 1px solid #e2e8f0;
-            display: flex;
-            gap: 20px;
+        /* SKILLS */
+        .skills-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
         }
-        .card-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .card-links a:hover { color: var(--primary); }
-
-        /* SKILLS GRID */
-        .skills-grid {
+        
+        .skills-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
         }
-        .skill-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.2s;
-        }
-        .skill-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .skill-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
-        .skill-title { font-weight: 700; margin-bottom: 10px; color: var(--dark); }
-        .skill-desc { font-size: 0.9rem; color: #64748b; }
+        
+        .skill-group h4 { color: var(--primary); margin-bottom: 15px; font-size: 1.1rem; }
+        .skill-group ul { list-style: none; padding: 0; }
+        .skill-group li { margin-bottom: 8px; color: var(--text-main); font-weight: 500; }
 
-        footer { text-align: center; padding: 4rem 0 2rem; color: #94a3b8; font-size: 0.9rem; }
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
     </style>
 </head>
 <body>
@@ -204,193 +214,165 @@
     <header>
         <div class="profile-container">
             <h1>Michkath ABOUDOU</h1>
-            <div class="subtitle">Data Engineer Junior | Analytics Engineer</div>
-            <p class="tagline">"Je transforme la donnée brute en décision stratégique."</p>
+            <div class="role">Data Engineer Junior | Analytics Engineer</div>
+            <p class="bio">
+                Je conçois des pipelines de données automatisés et des dashboards décisionnels pour transformer la donnée brute en stratégie.
+            </p>
             
-            <div style="margin-top: 30px;">
-                <a href="mailto:michkathaboudou@gmail.com" class="btn-contact"><i class="fas fa-envelope"></i> Me contacter</a>
-                <a href="https://github.com/Michkath" class="btn-contact" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); margin-left: 10px;"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/michkath-aboudou/" class="btn-contact" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); margin-left: 10px;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <div class="social-links">
+                <a href="mailto:michkathaboudou@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Me contacter
+                </a>
+                <a href="https://github.com/Michkath" class="btn btn-outline">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/michkath-aboudou/" class="btn btn-outline">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
             </div>
         </div>
     </header>
 
     <div class="container">
 
-        <h2 class="section-title">🚀 Projet Phare</h2>
-        
-        <div class="card" style="border-top: 5px solid var(--primary);">
-            <img src="https://github.com/Michkath/vinted-market-monitor/blob/main/dashbord.png?raw=true" alt="Dashboard Vinted" class="card-img">
-            
-            <div class="card-header">
-                <h3>🛍️ Strategic Pricing Monitor</h3>
-                <div class="card-tags">
-                    <span class="tag"><i class="fab fa-python"></i> Python</span>
-                    <span class="tag"><i class="fas fa-robot"></i> SeleniumBase</span>
-                    <span class="tag"><i class="fas fa-database"></i> PostgreSQL</span>
-                    <span class="tag"><i class="fas fa-chart-bar"></i> Power BI</span>
-                    <span class="tag"><i class="fas fa-sync"></i> GitHub Actions</span>
-                </div>
-            </div>
+        <span class="section-label">PORTFOLIO</span>
+        <h2 class="section-title">📂 Mes Projets Réalisés</h2>
 
-            <div class="project-details">
-                <p>
-                    Solution <strong>End-to-End de Market Intelligence</strong> conçue pour surveiller le marché de la seconde main en temps réel.
-                    Pipeline ETL complet transformant des données non structurées en indicateurs stratégiques.
-                </p>
+        <div class="projects-grid">
 
-                <div class="architecture-block">
-                    <span class="architecture-title"><i class="fas fa-sitemap"></i> Architecture Technique</span>
-                    <strong>Source (Vinted)</strong> ➔ 
-                    Scraping Anti-Bot (Python) ➔ 
-                    Nettoyage (Regex) ➔ 
-                    <strong>Data Warehouse (Supabase)</strong> ➔ 
-                    Vues SQL ➔ 
-                    <strong>Dashboard (Power BI)</strong>
-                    <br><br>
-                    <i class="fas fa-clock"></i> <em>Orchestration quotidienne via CI/CD (GitHub Actions).</em>
-                </div>
-
-                <h4>💡 Défis Techniques :</h4>
-                <ul class="feature-list">
-                    <li><strong>Contournement Anti-Bot :</strong> Mode <em>Undetected</em> pour simuler un comportement humain.</li>
-                    <li><strong>Qualité de Donnée :</strong> Normalisation automatique des marques et tailles via Regex.</li>
-                    <li><strong>Gestion Historique :</strong> Stratégie d'<strong>Upsert</strong> SQL pour éviter les doublons.</li>
-                    <li><strong>Analyse :</strong> Dashboard BI connecté en direct pour détecter les opportunités d'arbitrage.</li>
-                </ul>
-            </div>
-
-            <div class="card-links">
-                <a href="https://github.com/Michkath/vinted-market-monitor"><i class="fab fa-github"></i> Voir le Code Source</a>
-                <a href="#"><i class="fas fa-file-pdf"></i> Voir le Rapport (PDF)</a>
-            </div>
-        </div>
-
-        <h2 class="section-title">💼 Autres Réalisations Data</h2>
-        
-        <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-            
             <div class="card">
-                <img src="https://github.com/Michkath/Olist-Sales-Analysis/blob/main/Images/Dashbord.png?raw=true" alt="Dashboard Olist" class="card-img" style="height: 200px;">
-                
-                <div class="card-header">
-                    <h3>🛒 Dashboard E-Commerce</h3>
-                    <div class="card-tags">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">DAX</span>
+                <div class="card-img-top" style="background-image: url('https://github.com/Michkath/vinted-market-monitor/blob/main/dashbord.png?raw=true');"></div>
+                <div class="card-body">
+                    <h3>🛍️ Market Intelligence Monitor</h3>
+                    <p>Pipeline ETL End-to-End pour surveiller les prix Vinted. Scraping anti-bot, nettoyage SQL automatisé et dashboarding en temps réel.</p>
+                    <div class="tags-container">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Selenium</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">CI/CD</span>
                     </div>
                 </div>
-                <div class="project-details">
-                    <p>Analyse complète des performances logistiques et ventes (Dataset Olist).</p>
-                    <ul class="feature-list">
-                        <li>Modélisation en étoile (Star Schema).</li>
-                        <li>Calcul de KPIs complexes (Délai livraison, Churn).</li>
-                        <li>Visualisation interactive pour la direction.</li>
-                    </ul>
-                </div>
-                <div class="card-links">
-                    <a href="https://github.com/Michkath/Olist-Sales-Analysis"><i class="fab fa-github"></i> Voir le projet</a>
+                <div class="card-footer">
+                    <a href="https://github.com/Michkath/vinted-market-monitor" class="link-text"><i class="fab fa-github"></i> Code</a>
+                    <a href="#" class="link-text"><i class="fas fa-chart-bar"></i> Rapport</a>
                 </div>
             </div>
-
+            
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Machine Learning" class="card-img" style="height: 200px;">
-                
-                <div class="card-header">
+                <div class="card-img-top" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2666/2666505.png'); background-size: 80px; background-repeat: no-repeat; background-color: #f1f5f9;"></div>
+                <div class="card-body">
                     <h3>💳 Prédiction Risque Crédit</h3>
-                    <div class="card-tags">
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Scikit-Learn</span>
-                        <span class="tag">Big Data</span>
+                    <p>Modèle de scoring pour anticiper les défauts de paiement bancaire sur un dataset de 300k lignes. Feature Engineering avancé.</p>
+                    <div class="tags-container">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Scikit-Learn</span>
+                        <span class="tech-tag">Big Data</span>
                     </div>
                 </div>
-                <div class="project-details">
-                    <p>Développement d'un modèle de scoring pour anticiper les défauts de paiement bancaire.</p>
-                    <ul class="feature-list">
-                        <li>Traitement d'un dataset volumineux (+300k lignes).</li>
-                        <li>Feature Engineering avancé.</li>
-                        <li>Modélisation (Random Forest / XGBoost).</li>
+                <div class="card-footer">
+                    <a href="https://github.com/Michkath/TP_Concept_and_techno_IA" class="link-text"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-top" style="background-image: url('https://github.com/Michkath/Olist-Sales-Analysis/blob/main/Images/Dashbord.png?raw=true');"></div>
+                <div class="card-body">
+                    <h3>🛒 Dashboard E-Commerce</h3>
+                    <p>Analyse des performances logistiques et ventes (Dataset Olist). Modélisation en étoile et KPIs décisionnels.</p>
+                    <div class="tags-container">
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">DAX</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com/Michkath/Olist-Sales-Analysis" class="link-text"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-top" style="background-image: url('https://brave-emg.com/favicon.ico'); background-size: 60px; background-repeat: no-repeat; background-color: #fff;"></div>
+                <div class="card-body">
+                    <h3>🏗️ Brave Engineering</h3>
+                    <p>Site vitrine déployé en production pour une entreprise de BTP. Focus sur la performance, le SEO et l'expérience utilisateur.</p>
+                    <div class="tags-container">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://brave-emg.com/" target="_blank" class="link-text"><i class="fas fa-external-link-alt"></i> Visiter</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-top" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2970/2970785.png'); background-size: 80px; background-repeat: no-repeat; background-color: #fff;"></div>
+                <div class="card-body">
+                    <h3>🎨 Les Ateliers Pastels</h3>
+                    <p>Site dédié à la promotion d'ateliers artistiques. Conception graphique soignée et intégration responsive.</p>
+                    <div class="tags-container">
+                        <span class="tech-tag">Web Design</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://lesatelierspastels.com/accueil" target="_blank" class="link-text"><i class="fas fa-external-link-alt"></i> Visiter</a>
+                </div>
+            </div>
+
+        </div>
+
+        <span class="section-label">EXPERTISE</span>
+        <h2 class="section-title">🛠 Stack Technique</h2>
+        
+        <div class="skills-wrapper">
+            <div class="skills-list">
+                <div class="skill-group">
+                    <h4><i class="fas fa-database"></i> Data Engineering</h4>
+                    <ul>
+                        <li>ETL & Pipelines</li>
+                        <li>Web Scraping (Selenium)</li>
+                        <li>API REST</li>
+                        <li>SQL Avancé</li>
                     </ul>
                 </div>
-                <div class="card-links">
-                    <a href="https://github.com/Michkath/TP_Concept_and_techno_IA"><i class="fab fa-github"></i> Voir le projet</a>
+                <div class="skill-group">
+                    <h4><i class="fas fa-cloud"></i> Cloud & Ops</h4>
+                    <ul>
+                        <li>PostgreSQL (Supabase)</li>
+                        <li>GitHub Actions (CI/CD)</li>
+                        <li>Git & Versioning</li>
+                        <li>Linux / WSL</li>
+                    </ul>
                 </div>
-            </div>
-
-        </div>
-
-        <h2 class="section-title">🌐 Projets Web en Production</h2>
-        
-        <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-            
-            <div class="card">
-                <div class="web-card-img" style="background-image: url('https://brave-emg.com/favicon.ico');"></div>
-                <div class="card-header">
-                    <h3>🏗️ Brave Engineering</h3>
-                    <div class="card-tags">
-                        <span class="tag">React.js</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">AWS</span>
-                    </div>
+                <div class="skill-group">
+                    <h4><i class="fas fa-chart-line"></i> Analytics & BI</h4>
+                    <ul>
+                        <li>Power BI (DAX)</li>
+                        <li>Pandas / NumPy</li>
+                        <li>Matplotlib</li>
+                        <li>Data Storytelling</li>
+                    </ul>
                 </div>
-                <div class="project-details">
-                    <p>Développement et déploiement du site vitrine d'une entreprise de BTP. Focus sur la performance et l'UX.</p>
+                <div class="skill-group">
+                    <h4><i class="fas fa-code"></i> Fullstack</h4>
+                    <ul>
+                        <li>Python 3.10</li>
+                        <li>JavaScript / Node.js</li>
+                        <li>React.js</li>
+                        <li>HTML5 / CSS3</li>
+                    </ul>
                 </div>
-                <div class="card-links">
-                    <a href="https://brave-emg.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="web-card-img" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2970/2970785.png'); background-size: contain; background-repeat: no-repeat; background-color: white;"></div>
-                <div class="card-header">
-                    <h3>🎨 Les Ateliers Pastels</h3>
-                    <div class="card-tags">
-                        <span class="tag">Web Design</span>
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Integration</span>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <p>Site vitrine dédié à la promotion d'ateliers artistiques. Conception graphique soignée et responsive.</p>
-                </div>
-                <div class="card-links">
-                    <a href="https://lesatelierspastels.com/accueil" target="_blank"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
-                </div>
-            </div>
-
-        </div>
-
-        <h2 class="section-title">🛠 Stack Technique</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fas fa-cogs skill-icon"></i>
-                <div class="skill-title">Data Engineering</div>
-                <div class="skill-desc">ETL, Web Scraping, API REST, SQL Avancé, Modélisation</div>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-cloud skill-icon"></i>
-                <div class="skill-title">Cloud & DevOps</div>
-                <div class="skill-desc">PostgreSQL (Supabase), GitHub Actions, Git, CI/CD</div>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-chart-pie skill-icon"></i>
-                <div class="skill-title">Analytics & BI</div>
-                <div class="skill-desc">Power BI (DAX), Pandas, Matplotlib, Data Storytelling</div>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-code skill-icon"></i>
-                <div class="skill-title">Fullstack</div>
-                <div class="skill-desc">Python 3.10, React.js, Node.js, HTML/CSS</div>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2025 Michkath ABOUDOU. Tous droits réservés.</p>
-        <p style="font-size: 0.8em;">Fait main avec ❤️ et du Code.</p>
+        <p>&copy; 2025 Michkath ABOUDOU.</p>
+        <p style="opacity: 0.6; font-size: 0.9rem;">Portfolio développé en HTML/CSS.</p>
     </footer>
 
 </body>
