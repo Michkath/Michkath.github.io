@@ -3,58 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Michkath ABOUDOU</title>
+    <title>Michkath ABOUDOU | Data Engineer & Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { color: #2c3e50; }
-        .hero { text-align: center; padding: 50px 0; background-color: #f8f9fa; border-radius: 10px; margin-bottom: 40px; }
-        .btn { display: inline-block; background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        .project { border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-        .tags span { background: #e9ecef; padding: 3px 8px; font-size: 0.9em; border-radius: 4px; margin-right: 5px; }
-        img { max-width: 100%; height: auto; border-radius: 5px; margin-top: 10px; border: 1px solid #eee;}
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+            --card-bg: #ffffff;
+            --accent-bg: #eff6ff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; font-weight: 800; letter-spacing: -1px; }
+        .subtitle { font-size: 1.25rem; opacity: 0.9; font-weight: 300; color: #94a3b8; }
+        .tagline { margin-top: 1.5rem; font-size: 1.1rem; font-style: italic; color: #cbd5e1; }
+
+        .btn-contact {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+        .btn-contact:hover { transform: translateY(-2px); background-color: #1d4ed8; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4); }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: -60px auto 60px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            color: var(--dark);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+        
+        .card:hover { transform: translateY(-3px); }
+
+        .card-header { padding: 1.5rem 2rem 0; }
+
+        .card h3 { 
+            margin-top: 0; 
+            color: var(--dark); 
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-tags { margin: 15px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            background: var(--accent-bg);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #dbeafe;
+        }
+
+        .project-details { padding: 0 2rem 2rem; }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        .feature-list li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li::before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .architecture-block {
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .architecture-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--dark);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Images */
+        .card-img {
+            width: 100%;
+            height: auto; /* Hauteur auto pour afficher toute l'image */
+            max-height: 400px; /* Limite pour ne pas être trop grand */
+            object-fit: cover; /* Recadre proprement si ça dépasse */
+            object-position: top; /* Montre le haut de l'image (les titres) */
+            border-bottom: 1px solid #e2e8f0;
+            display: block;
+        }
+        
+        .web-card-img {
+            height: 180px;
+            background-color: #f1f5f9;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-links {
+            padding: 1.5rem 2rem;
+            background-color: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 20px;
+        }
+        .card-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-links a:hover { color: var(--primary); }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+        .skill-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .skill-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
+        .skill-title { font-weight: 700; margin-bottom: 10px; color: var(--dark); }
+        .skill-desc { font-size: 0.9rem; color: #64748b; }
+
+        footer { text-align: center; padding: 4rem 0 2rem; color: #94a3b8; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>Michkath ABOUDOU</h1>
-        <p style="font-size: 1.2em; color: #666;">Data Engineer Junior | Analytics Engineer</p>
-        <p><i>"Je transforme la donnée brute en stratégie business via des pipelines automatisés."</i></p>
-        <a href="mailto:ton-email@gmail.com" class="btn">Me contacter</a>
-        <a href="https://github.com/Michkath" class="btn" style="background:#333;">Mon GitHub</a>
-    </div>
-
-    <h2>🚀 Projets Phares</h2>
-
-    <div class="project">
-        <h3>🛍️ Market Intelligence Monitor (Vinted)</h3>
-        <div class="tags">
-            <span>Python</span> <span>Selenium</span> <span>PostgreSQL</span> <span>Power BI</span> <span>GitHub Actions</span>
+    <header>
+        <div class="profile-container">
+            <h1>Michkath ABOUDOU</h1>
+            <div class="subtitle">Data Engineer Junior | Analytics Engineer</div>
+            <p class="tagline">"Je transforme la donnée brute en décision stratégique."</p>
+            
+            <div style="margin-top: 30px;">
+                <a href="mailto:michkathaboudou@gmail.com" class="btn-contact"><i class="fas fa-envelope"></i> Me contacter</a>
+                <a href="https://github.com/Michkath" class="btn-contact" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); margin-left: 10px;"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/michkath-aboudou/" class="btn-contact" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); margin-left: 10px;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
         </div>
-        <p>Conception d'un pipeline ETL 100% autonome pour surveiller le marché de la seconde main. Scraping anti-bot, nettoyage SQL et dashboarding en temps réel.</p>
-        <img src="https://github.com/Michkath/vinted-market-monitor/blob/main/dashbord.png?raw=true" alt="Dashboard Vinted">
-        <br><br>
-        <a href="https://github.com/Michkath/vinted-market-monitor" class="btn">Voir le Code & Documentation</a>
-    </div>
+    </header>
 
-    <div class="project">
-        <h3>💳 Prédiction de Risque Crédit</h3>
-        <div class="tags">
-            <span>Machine Learning</span> <span>Python</span> <span>Scikit-Learn</span> <span>Big Data</span>
+    <div class="container">
+
+        <h2 class="section-title">🚀 Projet Phare</h2>
+        
+        <div class="card" style="border-top: 5px solid var(--primary);">
+            <img src="https://github.com/Michkath/vinted-market-monitor/blob/main/dashbord.png?raw=true" alt="Dashboard Vinted" class="card-img">
+            
+            <div class="card-header">
+                <h3>🛍️ Strategic Pricing Monitor</h3>
+                <div class="card-tags">
+                    <span class="tag"><i class="fab fa-python"></i> Python</span>
+                    <span class="tag"><i class="fas fa-robot"></i> SeleniumBase</span>
+                    <span class="tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                    <span class="tag"><i class="fas fa-chart-bar"></i> Power BI</span>
+                    <span class="tag"><i class="fas fa-sync"></i> GitHub Actions</span>
+                </div>
+            </div>
+
+            <div class="project-details">
+                <p>
+                    Solution <strong>End-to-End de Market Intelligence</strong> conçue pour surveiller le marché de la seconde main en temps réel.
+                    Pipeline ETL complet transformant des données non structurées en indicateurs stratégiques.
+                </p>
+
+                <div class="architecture-block">
+                    <span class="architecture-title"><i class="fas fa-sitemap"></i> Architecture Technique</span>
+                    <strong>Source (Vinted)</strong> ➔ 
+                    Scraping Anti-Bot (Python) ➔ 
+                    Nettoyage (Regex) ➔ 
+                    <strong>Data Warehouse (Supabase)</strong> ➔ 
+                    Vues SQL ➔ 
+                    <strong>Dashboard (Power BI)</strong>
+                    <br><br>
+                    <i class="fas fa-clock"></i> <em>Orchestration quotidienne via CI/CD (GitHub Actions).</em>
+                </div>
+
+                <h4>💡 Défis Techniques :</h4>
+                <ul class="feature-list">
+                    <li><strong>Contournement Anti-Bot :</strong> Mode <em>Undetected</em> pour simuler un comportement humain.</li>
+                    <li><strong>Qualité de Donnée :</strong> Normalisation automatique des marques et tailles via Regex.</li>
+                    <li><strong>Gestion Historique :</strong> Stratégie d'<strong>Upsert</strong> SQL pour éviter les doublons.</li>
+                    <li><strong>Analyse :</strong> Dashboard BI connecté en direct pour détecter les opportunités d'arbitrage.</li>
+                </ul>
+            </div>
+
+            <div class="card-links">
+                <a href="https://github.com/Michkath/vinted-market-monitor"><i class="fab fa-github"></i> Voir le Code Source</a>
+                <a href="#"><i class="fas fa-file-pdf"></i> Voir le Rapport (PDF)</a>
+            </div>
         </div>
-        <p>Analyse et nettoyage d'un dataset bancaire volumineux (300k lignes) pour développer un modèle de scoring prédictif des défauts de paiement.</p>
-        <a href="#" class="btn" style="background:#6c757d;">Voir le projet</a>
+
+        <h2 class="section-title">💼 Autres Réalisations Data</h2>
+        
+        <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            
+            <div class="card">
+                <img src="https://github.com/Michkath/Olist-Sales-Analysis/blob/main/Images/Dashbord.png?raw=true" alt="Dashboard Olist" class="card-img" style="height: 200px;">
+                
+                <div class="card-header">
+                    <h3>🛒 Dashboard E-Commerce</h3>
+                    <div class="card-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">DAX</span>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>Analyse complète des performances logistiques et ventes (Dataset Olist).</p>
+                    <ul class="feature-list">
+                        <li>Modélisation en étoile (Star Schema).</li>
+                        <li>Calcul de KPIs complexes (Délai livraison, Churn).</li>
+                        <li>Visualisation interactive pour la direction.</li>
+                    </ul>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/Michkath/Olist-Sales-Analysis"><i class="fab fa-github"></i> Voir le projet</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Machine Learning" class="card-img" style="height: 200px;">
+                
+                <div class="card-header">
+                    <h3>💳 Prédiction Risque Crédit</h3>
+                    <div class="card-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Scikit-Learn</span>
+                        <span class="tag">Big Data</span>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>Développement d'un modèle de scoring pour anticiper les défauts de paiement bancaire.</p>
+                    <ul class="feature-list">
+                        <li>Traitement d'un dataset volumineux (+300k lignes).</li>
+                        <li>Feature Engineering avancé.</li>
+                        <li>Modélisation (Random Forest / XGBoost).</li>
+                    </ul>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/Michkath/TP_Concept_and_techno_IA"><i class="fab fa-github"></i> Voir le projet</a>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">🌐 Projets Web en Production</h2>
+        
+        <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            
+            <div class="card">
+                <div class="web-card-img" style="background-image: url('https://brave-emg.com/favicon.ico');"></div>
+                <div class="card-header">
+                    <h3>🏗️ Brave Engineering</h3>
+                    <div class="card-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">AWS</span>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>Développement et déploiement du site vitrine d'une entreprise de BTP. Focus sur la performance et l'UX.</p>
+                </div>
+                <div class="card-links">
+                    <a href="https://brave-emg.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="web-card-img" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2970/2970785.png'); background-size: contain; background-repeat: no-repeat; background-color: white;"></div>
+                <div class="card-header">
+                    <h3>🎨 Les Ateliers Pastels</h3>
+                    <div class="card-tags">
+                        <span class="tag">Web Design</span>
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Integration</span>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>Site vitrine dédié à la promotion d'ateliers artistiques. Conception graphique soignée et responsive.</p>
+                </div>
+                <div class="card-links">
+                    <a href="https://lesatelierspastels.com/accueil" target="_blank"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">🛠 Stack Technique</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-cogs skill-icon"></i>
+                <div class="skill-title">Data Engineering</div>
+                <div class="skill-desc">ETL, Web Scraping, API REST, SQL Avancé, Modélisation</div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-cloud skill-icon"></i>
+                <div class="skill-title">Cloud & DevOps</div>
+                <div class="skill-desc">PostgreSQL (Supabase), GitHub Actions, Git, CI/CD</div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-pie skill-icon"></i>
+                <div class="skill-title">Analytics & BI</div>
+                <div class="skill-desc">Power BI (DAX), Pandas, Matplotlib, Data Storytelling</div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code skill-icon"></i>
+                <div class="skill-title">Fullstack</div>
+                <div class="skill-desc">Python 3.10, React.js, Node.js, HTML/CSS</div>
+            </div>
+        </div>
+
     </div>
 
-    <h2>🛠 Compétences Techniques</h2>
-    <ul>
-        <li><strong>Data Engineering :</strong> ETL, Web Scraping (Selenium, BS4), SQL Avancé.</li>
-        <li><strong>Cloud & DevOps :</strong> PostgreSQL (Supabase), GitHub Actions (CI/CD), Git.</li>
-        <li><strong>BI & Viz :</strong> Power BI (DAX), Pandas, Matplotlib.</li>
-    </ul>
-
-    <footer style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #888;">
-        <p>&copy; 2025 Michkath Aboudou - Fait avec du code, pas du No-Code.</p>
+    <footer>
+        <p>&copy; 2025 Michkath ABOUDOU. Tous droits réservés.</p>
+        <p style="font-size: 0.8em;">Fait main avec ❤️ et du Code.</p>
     </footer>
 
 </body>
